@@ -1,14 +1,10 @@
 #!/usr/bin/env python3
-"""
-This module
-"""
-from typing import List, TypeVar, Optional
+"""Contains Augmented code with the correct duck-typed annotations."""
+from typing import Any, Union, Sequence
 
-T = TypeVar('T')  # Declare a generic type variable
 
-def safe_first_element(lst: List[T]) -> Optional[T]:
-    """
-    """
+def safe_first_element(lst: Sequence[Any]) -> Union[Any, None]:
+    """Return the first element of a list or None if the list is empty."""
     if lst:
         return lst[0]
     else:
