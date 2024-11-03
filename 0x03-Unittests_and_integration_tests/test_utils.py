@@ -43,4 +43,5 @@ class TestGetJson(unittest.TestCase):
         with patch("requests.get") as MockClass:
             MockClass.return_value = Mocked()
             self.assertEqual(get_json(url), payload)
-        MockClass.assert_awaited_once_with()
+        MockClass.assert_awaited_once_with("http://example.com")
+        MockClass.assert_awaited_once_with("http://holberton.io")
