@@ -12,11 +12,12 @@ class TestGithubOrgClient(unittest.TestCase):
         ("google"),
         ("abc")
     ])
-    def test_org(self, org):
-        """"""
-        m = Mock()
-        m.json.return_value = {"key": "value"}
-        with patch('requests.get', return_value=m) as m:
-            g = GithubOrgClient(org)
-            self.assertEqual(g.org, m().json())
-            m.assert_called_once()
+    @patch('client.get_json')
+    def test_org(self, data, mock):
+        """
+        self descriptive
+        """
+        endpoint = 'https://api.github.com/orgs/{}'.format(data)
+        spec = GithubOrgClient(data)
+        spec.org()
+        mock.assert_called_once_with(endpoint)
