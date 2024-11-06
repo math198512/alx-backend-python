@@ -10,8 +10,8 @@ from typing import Dict
 class TestGithubOrgClient(unittest.TestCase):
     """to test utils.get_json"""
     @parameterized.expand([
-        ("google", {'login': "google"}),
-        ("abc", {'login': "abc"}),
+        ("google"),
+        ("abc"),
     ])
     @patch('client.get_json')
     def test_org(self, input, mock):
